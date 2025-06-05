@@ -14,7 +14,6 @@ const UserList = () =>{
         const response = await fetch('https://jsonplaceholder.typicode.com/users')
         // Recarga la pagina y sale error
         //const response = await fetch('https://jsonplaceholder.typicode.com/usersas')
-
         if(!response.ok){
           throw new Error("Error al obtener los datos.")
         }
