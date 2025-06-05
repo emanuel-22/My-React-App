@@ -1,15 +1,11 @@
-
-import './App.css'
-//import Button from './components/Button/Button'
-import Text from './components/Text/Text'
-
+//import StaticComponent from "./components/StaticComponent/StaticComponent"
+//import UserList from "./components/UserList/UserList"
+import UserList from "./components/UserListWithLoading/UserListWithLoading"
 function App() {
 
   return (
     <>
-      {/* <Button blue> Hola </Button>
-      <Button> Hola </Button> */}
-      <Text/>
+      <UserList/>
     </>
   )
 }
