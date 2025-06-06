@@ -1,16 +1,50 @@
 
 import './App.css'
-//import Button from './components/Button/Button'
-import Text from './components/Text/Text'
+//import Counter from './components/Counter/Counter'
+import { useContext, createContext, useState } from 'react'
+
+import CounterWithCustomHook from './components/CounterWithCustomHook/CounterWithCustomHook';
+
+const ThemeContext = createContext();
+
+function ThemeProvider({children}){
+  const [theme, setTheme] = useState("light")
+  const toggleTheme = ()=>{
+    setTheme((provTheme) => (prevTheme === "light" ? "dark" : "light"))
+  }
+  return (
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+
+function ThemeButton(){
+  const {theme, toggleTheme} = useContext(ThemeContext);
+
+  return(
+    <button
+      onClick={toggleTheme}
+      style={{
+        backgroundColor: theme === "light" ? "#FFF" : "#333",
+        color: theme==="light" ? "#000" : "#FFF"
+      }}
+    >
+      Cambiar tema
+    </button>
+  )
+}
+
 
 function App() {
-
   return (
     <>
-      {/* <Button blue> Hola </Button>
-      <Button> Hola </Button> */}
-      <Text/>
+      <ThemeProvider>
+        <ThemeButton />
+      </ThemeProvider>
+       <CounterWithCustomHook/>
     </>
+
   )
 }
 
