@@ -2,8 +2,9 @@
 import './App.css'
 //import Counter from './components/Counter/Counter'
 import { useContext, createContext, useState } from 'react'
-
 import CounterWithCustomHook from './components/CounterWithCustomHook/CounterWithCustomHook';
+import CounterWithReactMemo from './components/CounterWithReactMemo/CounterWithReactMemo';
+
 
 const ThemeContext = createContext();
 
@@ -39,10 +40,11 @@ function ThemeButton(){
 function App() {
   return (
     <>
-      <ThemeProvider>
+      {/* <ThemeProvider>
         <ThemeButton />
       </ThemeProvider>
-       <CounterWithCustomHook/>
+      <CounterWithCustomHook/> */}
+      <CounterWithReactMemo/>
     </>
 
   )
